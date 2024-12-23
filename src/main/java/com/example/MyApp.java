@@ -54,6 +54,3 @@ public class VulnerableApp {
         System.out.println("User credentials: " + data);
     }
 }
-
-
-//this comment is from VS code and commitd from vs code ....ok....
