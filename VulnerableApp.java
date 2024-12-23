@@ -34,3 +34,5 @@ public class VulnerableApp {
         System.out.println("User credentials: " + data);
     }
 }
+
+//store: password
