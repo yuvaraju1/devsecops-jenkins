@@ -1,7 +1,11 @@
 package com.example;
 
-public class MyApp {
+import java.util.HashMap;
+import java.util.Map;
 
+public class CombinedApp {
+
+    // MyApp functionality
     public String greet(String name) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
@@ -9,32 +13,16 @@ public class MyApp {
         return "Hello, " + name + "!";
     }
 
+    // VulnerableApp functionality
     public static void main(String[] args) {
-        MyApp app = new MyApp();
-        System.out.println(app.greet("World"));
-    }
-}
-
-//the below code is from VulnerableApp.java file 
-
-
-package com.example.vulnerable;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class VulnerableApp {
-
-    // Hardcoded sensitive data - Secrets
-    private static final String API_KEY = "12345-abcde-67890-fghij";
-    private static final String DB_PASSWORD = "password123";
-    private static final String SECRET_KEY = "secret-key-value";
-
-    public static void main(String[] args) {
-
-        // Hardcoded credentials (insecure)
+        // VulnerableApp code (hardcoded secrets)
         String username = "admin";
         String password = "admin123";
+
+        // Hardcoded sensitive data - Secrets
+        String API_KEY = "12345-abcde-67890-fghij";
+        String DB_PASSWORD = "password123";
+        String SECRET_KEY = "secret-key-value";
 
         // A simulated database connection (insecure)
         String dbConnection = "jdbc:mysql://localhost:3306/mydb?user=root&password=" + DB_PASSWORD;
@@ -48,9 +36,15 @@ public class VulnerableApp {
         data.put("password", password);
         data.put("dbConnection", dbConnection);
 
+        // Print vulnerable data
         System.out.println("Vulnerable application running...");
         System.out.println("API URL: " + apiUrl);
         System.out.println("Database connection string: " + dbConnection);
         System.out.println("User credentials: " + data);
+
+        // MyApp functionality: Greet method
+        CombinedApp app = new CombinedApp();
+        System.out.println(app.greet("World"));
     }
 }
+
