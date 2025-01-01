@@ -40,5 +40,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 <version>3.9.0.1104</version>
             </plugin>
         </plugins>
+        <properties>
+            <!-- Add the SonarQube server URL here -->
+            <sonar.host.url>http://localhost:9000</sonar.host.url> <!-- Change this to your SonarQube server URL -->
+        </properties>
     </build>
 </project>
